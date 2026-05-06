@@ -1,8 +1,8 @@
 package org.example;
 
-import org.example.chain.SuporteNivel1;
-import org.example.chain.SuporteNivel2;
-import org.example.chain.SuporteNivel3;
+import org.example.chain.Handlers.SuporteNivel1;
+import org.example.chain.Handlers.SuporteNivel2;
+import org.example.chain.Handlers.SuporteNivel3;
 import org.example.facade.SuporteFacade;
 import org.example.strategy.AtendimentoAutomatizado;
 import org.example.strategy.AtendimentoDetalhado;

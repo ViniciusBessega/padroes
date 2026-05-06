@@ -1,4 +1,6 @@
-package org.example.chain;
+package org.example.chain.Handlers;
+
+import org.example.chain.Handler.NivelAtendimento;
 
 public class SuporteNivel2 extends NivelAtendimento {
 
