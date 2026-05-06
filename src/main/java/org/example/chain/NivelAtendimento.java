@@ -1,10 +1,10 @@
 package org.example.chain;
 
-public abstract class SuporteHandler {
+public abstract class NivelAtendimento {
 
-    protected SuporteHandler sucessor;
+    protected NivelAtendimento sucessor;
 
-    public void setSucessor(SuporteHandler sucessor) {
+    public void setSucessor(NivelAtendimento sucessor) {
         this.sucessor = sucessor;
     }
 

@@ -1,6 +1,6 @@
 package org.example.chain;
 
-public class SuporteNivel1 extends SuporteHandler {
+public class SuporteNivel1 extends NivelAtendimento {
 
     @Override
     protected String getNivel() {
