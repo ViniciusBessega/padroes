@@ -10,6 +10,7 @@ import org.example.strategy.AtendimentoRapido;
 import org.example.strategy.ContextoAtendimento;
 import org.example.template.AtendimentoComplexo;
 import org.example.template.AtendimentoSimples;
+import org.example.template.AtendimentoTemplate;
 
 public class Main {
 
@@ -39,12 +40,12 @@ public class Main {
 
         System.out.println("\nPADRÃO TEMPLATE");
 
-        AtendimentoSimples simples = new AtendimentoSimples();
+        AtendimentoTemplate simples = new AtendimentoSimples();
         simples.resolverChamado();
 
         System.out.println();
 
-        AtendimentoComplexo complexo = new AtendimentoComplexo();
+        AtendimentoTemplate complexo = new AtendimentoComplexo();
         complexo.resolverChamado();
 
 
