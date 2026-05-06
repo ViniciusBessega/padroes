@@ -14,7 +14,7 @@ public class SuporteFacade {
 
     public void abrirChamado() {
 
-        System.out.println("\n=== ABRINDO CHAMADO ===");
+        System.out.println("...ABRINDO CHAMADO...");
 
         autenticacao.autenticarUsuario();
         chamado.criarChamado();

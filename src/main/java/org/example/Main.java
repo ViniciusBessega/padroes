@@ -11,56 +11,117 @@ import org.example.strategy.ContextoAtendimento;
 import org.example.template.AtendimentoComplexo;
 import org.example.template.AtendimentoSimples;
 import org.example.template.AtendimentoTemplate;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("PADRÃO FACADE");
+        Scanner scanner = new Scanner(System.in);
+
+        int problemaOpcao;
+
+        String problema = "";
+
+        System.out.println("=== SISTEMA DE SUPORTE ===");
+
+
+        System.out.println("\nQual o problema?");
+        System.out.println("1 - Troca de senha");
+        System.out.println("2 - Problema de software");
+        System.out.println("3 - Problema avançado");
+
+        problemaOpcao = scanner.nextInt();
+
+        switch (problemaOpcao) {
+            case 1:
+                problema = "senha";
+
+                executarFacade(problema);
+                executarChain(problema);
+                executarTemplate(problema);
+                executarStrategy(problema);
+                break;
+            case 2:
+                problema = "software";
+
+                executarFacade(problema);
+                executarChain(problema);
+                executarTemplate(problema);
+                executarStrategy(problema);
+                break;
+            case 3:
+                problema = "avancado";
+
+                executarFacade(problema);
+                executarChain(problema);
+                executarTemplate(problema);
+                executarStrategy(problema);
+                break;
+        }
+        scanner.close();
+    }
+
+    public static void executarFacade(String problema) {
+
+        System.out.println("\n=== FACADE ===");
 
         SuporteFacade facade = new SuporteFacade();
         facade.abrirChamado();
 
+        System.out.println("Problema registrado: " + problema);
+    }
 
 
-        System.out.println("\nPADRÃO CHAIN");
+    public static void executarChain(String problema) {
 
-        SuporteNivel1 nivel1 = new SuporteNivel1();
-        SuporteNivel2 nivel2 = new SuporteNivel2();
-        SuporteNivel3 nivel3 = new SuporteNivel3();
+        System.out.println("\n=== CHAIN OF RESPONSIBILITY ===");
 
-        nivel1.setSucessor(nivel2);
-        nivel2.setSucessor(nivel3);
+        SuporteNivel1 n1 = new SuporteNivel1();
+        SuporteNivel2 n2 = new SuporteNivel2();
+        SuporteNivel3 n3 = new SuporteNivel3();
 
-        nivel1.processaChamado("senha");
-        nivel1.processaChamado("software");
-        nivel1.processaChamado("avancado");
+        n1.setSucessor(n2);
+        n2.setSucessor(n3);
 
+        n1.processaChamado(problema);
+    }
 
+    // =========================
+    // TEMPLATE
+    // =========================
+    public static void executarTemplate(String problema) {
 
-        System.out.println("\nPADRÃO TEMPLATE");
+        System.out.println("\n=== TEMPLATE METHOD ===");
 
-        AtendimentoTemplate simples = new AtendimentoSimples();
-        simples.resolverChamado();
+        AtendimentoTemplate atendimento;
 
-        System.out.println();
+        if (problema.equals("senha")) {
+            atendimento = new AtendimentoSimples();
+        } else {
+            atendimento = new AtendimentoComplexo();
+        }
 
-        AtendimentoTemplate complexo = new AtendimentoComplexo();
-        complexo.resolverChamado();
+        atendimento.resolverChamado();
+    }
 
+    // =========================
+    // STRATEGY
+    // =========================
+    public static void executarStrategy(String problema) {
 
+        System.out.println("\n=== STRATEGY ===");
 
-        System.out.println("\nPADRÃO STRATEGY");
+        ContextoAtendimento executor;
 
-        ContextoAtendimento contextoAtendimento;
+        if (problema.equals("senha")) {
+            executor = new ContextoAtendimento(new AtendimentoRapido());
+        } else if (problema.equals("software")) {
+            executor = new ContextoAtendimento(new AtendimentoDetalhado());
+        } else {
+            executor = new ContextoAtendimento(new AtendimentoAutomatizado());
+        }
 
-        contextoAtendimento = new ContextoAtendimento(new AtendimentoRapido());
-        contextoAtendimento.executar("Troca de senha");
-
-        contextoAtendimento = new ContextoAtendimento(new AtendimentoDetalhado());
-        contextoAtendimento.executar("Erro no sistema");
-
-        contextoAtendimento = new ContextoAtendimento(new AtendimentoAutomatizado());
-        contextoAtendimento.executar("Reset automático");
+        executor.executar(problema);
     }
 }
