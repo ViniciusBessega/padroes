@@ -2,6 +2,7 @@ package org.example.template;
 
 public abstract class AtendimentoTemplate {
 
+    // trecho que vai ser constante e abstrata, definindo o padrão de fluxo
     public final void resolverChamado() {
 
         abrirChamado();
@@ -27,7 +28,7 @@ public abstract class AtendimentoTemplate {
         System.out.println("Analisando chamado...");
     }
 
-    // ETAPA VARIÁVEL
+    // trecho que vai ser flexível a cada classe do template
     protected abstract void resolver();
 
     private void testarSolucao() {

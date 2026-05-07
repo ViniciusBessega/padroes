@@ -14,7 +14,7 @@ public abstract class NivelAtendimento {
 
     public void processaChamado(String problema) {
 
-        if (problema.equalsIgnoreCase(getProblema())) {
+        if (problema == getProblema()) {
 
             System.out.println(getNivel() +
                     " resolveu o problema de " + problema);

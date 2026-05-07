@@ -62,6 +62,7 @@ public class Main {
         scanner.close();
     }
 
+    // =========== FACADE ==============
     public static void executarFacade(String problema) {
 
         System.out.println("\n=== FACADE ===");
@@ -73,6 +74,7 @@ public class Main {
     }
 
 
+    // =========== CHAIN OF RESPONSABILITY ==============
     public static void executarChain(String problema) {
 
         System.out.println("\n=== CHAIN OF RESPONSIBILITY ===");
@@ -87,12 +89,10 @@ public class Main {
         n1.processaChamado(problema);
     }
 
-    // =========================
-    // TEMPLATE
-    // =========================
-    public static void executarTemplate(String problema) {
+    // =========== TEMPLATE ==============
+        public static void executarTemplate(String problema) {
 
-        System.out.println("\n=== TEMPLATE METHOD ===");
+        System.out.println("\n=== TEMPLATE ===");
 
         AtendimentoTemplate atendimento;
 
@@ -105,9 +105,7 @@ public class Main {
         atendimento.resolverChamado();
     }
 
-    // =========================
-    // STRATEGY
-    // =========================
+    // =========== STRATEGY ==============
     public static void executarStrategy(String problema) {
 
         System.out.println("\n=== STRATEGY ===");
